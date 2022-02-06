@@ -1,6 +1,6 @@
 package com.example.weatherapp.di
 
-import com.example.weatherapp.data.WeatherApi
+import com.example.weatherapp.data.network.WeatherApiService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -14,7 +14,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object ApiModule {
-    private const val BASE_URL = "api.openweathermap.org/data/2.5/"
+    private const val BASE_URL = "apiService.openweathermap.org/data/2.5/"
 
     private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
@@ -22,10 +22,10 @@ object ApiModule {
 
     @Provides
     @Singleton
-    fun provideApi(): WeatherApi = Retrofit.Builder()
+    fun provideApi(): WeatherApiService = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .baseUrl(BASE_URL)
         .build()
-        .create(WeatherApi::class.java)
+        .create(WeatherApiService::class.java)
 
 }

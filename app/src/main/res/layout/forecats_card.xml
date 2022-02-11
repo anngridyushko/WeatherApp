@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="weather"
+            type="com.example.weatherapp.domain.entities.Weather" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/WeatherCard"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="2dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintGuide_percent="0.5"
+            android:background="#C8C8C8">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+
+            <ImageView
+                android:id="@+id/weather_icon"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:padding="5dp"
+                app:imageUrl=""
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_sun" />
+
+            <TextView
+                android:id="@+id/weather_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text=""
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/guideline2"
+                app:layout_constraintStart_toEndOf="@id/weather_icon" />
+
+            <TextView
+                android:id="@+id/weather_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/weather_icon"
+                app:layout_constraintTop_toBottomOf="@id/guideline2" />
+
+            <TextView
+                android:id="@+id/temperature"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

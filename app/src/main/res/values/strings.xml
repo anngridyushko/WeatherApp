@@ -2,4 +2,6 @@
     <string name="app_name">WeatherApp</string>
     <string name="weather">Weather</string>
     <string name="forecast">Forecast</string>
+    <string name="today">Today</string>
+    <string name="minsk">Minsk</string>
 </resources>
